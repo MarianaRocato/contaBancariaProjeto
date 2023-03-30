@@ -159,8 +159,12 @@ public class Menu {
 				System.out.println("Digite o número da conta: ");
 				numero = leia.nextInt();
 				
-				System.out.println("Digite o valor do Saque: ");
-				valor = leia.nextFloat();
+				do {
+					System.out.println("Digite o valor do Saque: ");
+					valor = leia.nextFloat();
+				}while(valor <= 0);
+				
+				contas.sacar(numero, valor);
 				
 				keyPress();
 				break;
@@ -170,8 +174,11 @@ public class Menu {
 				System.out.println("Digite o número da conta: ");
 				numero = leia.nextInt();
 				
+				do {
 				System.out.println("Digite o valor do Depósito: ");
 				valor = leia.nextFloat();
+				}while(valor <= 0);
+				contas.depositar(numero, valor);
 				
 				keyPress();
 				break;
@@ -187,6 +194,8 @@ public class Menu {
 					System.out.println("Digite o Valor da Transferência (R$): ");
 					valor = leia.nextFloat();
 				} while (valor <= 0);
+				
+				contas.transferir(numero, numeroDestino, valor);
 
 				keyPress();
 				break;
